@@ -1,0 +1,17 @@
+import requests
+from bs4 import BeautifulSoup
+
+def scrape_website(url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.content, 'html.parser')
+        return soup.prettify()
+    else:
+        return "Failed to retrieve content"
+
+if __name__ == "__main__":
+    url = "http://example.com"
+    content = scrape_website(url)
+    print(content)
+requests
+beautifulsoup4
